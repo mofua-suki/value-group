@@ -1,7 +1,7 @@
 name: value_group
 description: An ordered, immutable group that distinguishes zero, one, and multiple values by type.
 version: 0.1.0
-repository: https://github.com/sakamoto711/value-group
+repository: https://github.com/mofua-suki/value-group
 
 environment:
   sdk: ^3.14.0
