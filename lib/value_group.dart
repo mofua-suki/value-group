@@ -31,6 +31,12 @@ sealed class Group<T extends Object> extends Equatable {
   Group<T> merge({required Group<T> other, bool distinct = false});
 
   @override
+  String toString() {
+    if (stringify ?? EquatableConfig.stringify) return super.toString();
+    return '$runtimeType';
+  }
+
+  @override
   List<Object?> get props => values;
 }
 
