@@ -21,3 +21,8 @@ jobs:
       - run: dart pub get
       - run: dart analyze
       - run: dart test
+      - name: Verify the minimum supported Equatable version
+        run: |
+          dart pub downgrade equatable
+          dart analyze
+          dart test
