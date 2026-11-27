@@ -32,6 +32,8 @@ The constructors take a shallow snapshot of the iterable in one pass. The `value
 
 An ordinary merge appends the right group and preserves duplicates. Set `distinct: true` to keep the first occurrence of each value according to its equality and hash code. This works for both operands even when one is empty. The result is classified by its final size.
 
+When combining groups created with different element types, create the left group with the common type first. For example, use `Group<num>.from(ints.values).merge(other: doubles)` to combine a `Group<int>` with a `Group<double>`.
+
 ## Development
 
 Run these commands from the repository root.
