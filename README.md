@@ -30,6 +30,8 @@ Pass a `ValuedGroup<T>` when a function requires at least one value. Its `first`
 
 The constructors take a shallow snapshot of the iterable in one pass. The `values` list is unmodifiable. Group equality compares values in order and includes duplicate counts.
 
+Since 0.1.5, groups of the same runtime type compare each element using its own Dart `==` and `hashCode`, as in a distinct merge. Earlier versions could compare nested collections recursively. For example, two single-value groups containing separately allocated Dart lists `[1]` are unequal. They compare equal when both hold the same list instance.
+
 An ordinary merge appends the right group and preserves duplicates. Set `distinct: true` to keep the first occurrence of each value according to its equality and hash code. This works for both operands even when one is empty. The result is classified by its final size.
 
 When combining groups created with different element types, create the left group with the common type first. For example, use `Group<num>.from(ints.values).merge(other: doubles)` to combine a `Group<int>` with a `Group<double>`.

@@ -68,6 +68,27 @@ void main() {
     expect(group, isNot(Group<int>.from([1, 2])));
   });
 
+  test('nested elements compare the same way as a distinct merge', () {
+    final item = [1];
+    final left = Group<Object>.single(item);
+    final shared = Group<Object>.single(item);
+    expect(left == shared, isTrue);
+    expect(shared == left, isTrue);
+    expect(left.hashCode, shared.hashCode);
+    expect(left.merge(other: shared, distinct: true), left);
+
+    for (final otherItem in <Object>[
+      [1],
+      {1},
+    ]) {
+      final other = Group<Object>.single(otherItem);
+      expect(left == other, isFalse);
+      expect(other == left, isFalse);
+      expect(left.merge(other: other, distinct: true).values.length, 2);
+    }
+    expect(left == Group<List<int>>.single(item), isFalse);
+  });
+
   test('ordinary merge keeps order and duplicates', () {
     const empty = Group<int>.empty();
     final left = Group<int>.from([2, 1, 2]);
