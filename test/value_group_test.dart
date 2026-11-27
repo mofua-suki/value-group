@@ -78,6 +78,13 @@ void main() {
     expect(left.merge(other: empty), left);
   });
 
+  test('merging into an empty group retains its wider element type', () {
+    final first = const Group<num>.empty().merge(other: Group<int>.single(1));
+    expect(first, isA<SingleGroup<num>>());
+    final merged = first.merge(other: Group<double>.single(2.5));
+    expect(merged.values, [1, 2.5]);
+  });
+
   test('distinct merge normalizes empty and duplicate-only inputs', () {
     const empty = Group<int>.empty();
     const single = Group<int>.single(1);

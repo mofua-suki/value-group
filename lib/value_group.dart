@@ -52,7 +52,7 @@ final class EmptyGroup<T extends Object> extends Group<T> {
 
   @override
   Group<T> merge({required Group<T> other, bool distinct = false}) =>
-      distinct ? Group<T>.from(<T>{...other.values}) : other;
+      Group<T>.from(distinct ? <T>{...other.values} : other.values);
 }
 
 /// A group guaranteed to contain at least one value.
