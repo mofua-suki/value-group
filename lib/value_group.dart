@@ -34,6 +34,22 @@ sealed class Group<T extends Object> extends Equatable {
   Group<T> merge({required Group<T> other, bool distinct = false});
 
   @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! Group<T> || runtimeType != other.runtimeType) return false;
+    final left = values;
+    final right = other.values;
+    if (left.length != right.length) return false;
+    for (var i = 0; i < left.length; i++) {
+      if (left[i] != right[i]) return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, Object.hashAll(values));
+
+  @override
   String toString() {
     if (stringify ?? EquatableConfig.stringify) return super.toString();
     return '$runtimeType';

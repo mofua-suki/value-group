@@ -1,3 +1,7 @@
+## 0.1.5
+
+- Compare group elements using their own equality and hash codes, matching distinct merges for nested collections.
+
 ## 0.1.4
 
 - Preserve the left element type when merging into an empty group.
