@@ -1,3 +1,7 @@
+## 0.1.4
+
+- Preserve the left element type when merging into an empty group.
+
 ## 0.1.3
 
 - Document how to merge groups that have different element types.
