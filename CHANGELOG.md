@@ -1,3 +1,7 @@
+## 0.1.3
+
+- Document how to merge groups that have different element types.
+
 ## 0.1.2
 
 - Add a Japanese README and document the SDK requirement and installation command.

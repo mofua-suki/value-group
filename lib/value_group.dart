@@ -28,6 +28,9 @@ sealed class Group<T extends Object> extends Equatable {
   /// With [distinct], keeps the first occurrence of each value according to
   /// the element's equality and hash code, even if either group is empty.
   /// The result type reflects the number of values retained.
+  ///
+  /// To merge groups with different element types, construct the left group
+  /// with the common type first, for example `Group<num>.from(ints.values)`.
   Group<T> merge({required Group<T> other, bool distinct = false});
 
   @override
