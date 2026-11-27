@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Add a Japanese README and document the SDK requirement and installation command.
+
 ## 0.1.1
 
 - Support Equatable 3 while keeping compatibility with Equatable 2.1.
